@@ -2,26 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  body {
+    @apply dark:bg-background bg-gray
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  input::placeholder {
+    @apply text-darkGray dark:text-white
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.input-wrapper {
+  box-shadow: 0 16px 30px -10px rgba(70, 96, 187, 0.198567);
+}
+
+input::placeholder {
+  font-size: 0.813rem;
+}
+
+.user-info {
+  grid-template-columns: 2rem 1fr;
+}
+
+@media screen and (min-width: 768px) {
+  .user-info {
+    grid-template-columns: 2rem 1fr 2rem 1fr;
+  }
 }
